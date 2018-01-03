@@ -45,10 +45,10 @@ container["containers"] = {}
 container["containers"][results.name] =  {"origin-offset" : { "x" : results.xoffset, "y" : results.yoffset, "z" : results.zoffset}}
 container["containers"][results.name].update({"locations" : {}})
 
-for xvalue in xrange(results.w):
+for xvalue in range(results.w):
   letter = label_gen()
-  for yvalue in xrange(results.l):
+  for yvalue in range(results.l):
     number = yvalue
-    label = letter + str(number)
+    label = letter + str(number + 1)
     container["containers"][results.name]["locations"].update({label : { "x" : xvalue * results.q, "y" : yvalue * results.q, "z" : results.u, "depth" : results.d, "diameter" : results.r, "total-liquid-volume" : results.v}})
-print json.dumps(container)
+print json.dumps(container, indent=4, sort_keys=True)
